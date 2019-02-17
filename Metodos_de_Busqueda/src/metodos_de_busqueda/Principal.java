@@ -15,6 +15,7 @@ public class Principal extends javax.swing.JFrame {
 
     
     public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
+    public static Mostrar mostrar=new Mostrar();
     /**
      * Creates new form Principal
      */
@@ -49,6 +50,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setText("Mostrar");
         jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Modificar información");
         jButton3.setEnabled(false);
@@ -146,8 +152,17 @@ public class Principal extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         jButton5.setEnabled(false);
         jButton1.setEnabled(true);
+        new Crear().setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        mostrar.abrir();
+        
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

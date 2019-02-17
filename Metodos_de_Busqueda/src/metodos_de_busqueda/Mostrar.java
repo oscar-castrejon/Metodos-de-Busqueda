@@ -5,13 +5,12 @@
  */
 package metodos_de_busqueda;
 
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class LlenarCampos extends JFrame {
-    JButton Aceptar = new JButton("Aceptar");
+public class Mostrar extends JFrame {
+    JButton salir = new JButton("Salir");
     GridLayout grid;
     
     public static int matriz[][];
@@ -22,7 +21,7 @@ public class LlenarCampos extends JFrame {
     
       public static LlenarCampos frame;
     
-    public LlenarCampos() {
+    public Mostrar() {
         
         setResizable(false);
     }
@@ -41,7 +40,7 @@ public class LlenarCampos extends JFrame {
         int total=cantidad*cantidad;
         int p=0;
         TextField tf[][]=new TextField[cantidad][cantidad];
-        int matriz[][]=new int[cantidad][cantidad];
+        int matriz[][]=metodos.getMatriz();
         
         
         
@@ -56,33 +55,24 @@ public class LlenarCampos extends JFrame {
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
-                compsToExperiment.add(tf[x][y]=new TextField("0"));
+                tf[x][y]=new TextField(""+matriz[x][y]);
+                tf[x][y].setEnabled(false);
+                compsToExperiment.add(tf[x][y]);
             }
         }
         
-        compsToExperiment.add(Aceptar);
+        compsToExperiment.add(salir);
         
         //Process the Apply gaps button press
-        Aceptar.addActionListener(new ActionListener(){
+        salir.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 //Get the horizontal gap value
                 //Set up the layout of the buttons
                 grid.layoutContainer(compsToExperiment);
-                try{
-                    for(int x=0;x<cantidad;x++){
-                        for(int y=0;y<cantidad;y++){
-                            matriz[x][y]=Integer.parseInt(tf[x][y].getText());
-                        }
-                    }
-                    metodos.setMatriz(matriz);
-                    
-                    metodos.creado();
+                
+                    metodos.abrir();
                     frame.dispose();
                 }
-                catch (NumberFormatException nfe){
-            JOptionPane.showMessageDialog(null, "Ingrese solo numeros en los campos");
-        }
-            }
         });
         pane.add(compsToExperiment, BorderLayout.NORTH);
     }

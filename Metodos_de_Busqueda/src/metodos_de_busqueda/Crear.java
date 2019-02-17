@@ -141,7 +141,6 @@ public class Crear extends javax.swing.JFrame {
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
         
-        metodos.creado();
         campos.abrir();
         
         this.dispose();

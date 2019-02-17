@@ -17,7 +17,7 @@ public class Metodos_de_Busqueda {
     public static JFrame principal=new Principal();
     public static String nodos[];
     public static boolean creado=false;
-    
+    public static int matriz[][];
     
     /**
      * @param args the command line arguments
@@ -30,11 +30,20 @@ public class Metodos_de_Busqueda {
         principal.setVisible(true);
         creado=true;
     }
+    public static void abrir(){
+        principal.setVisible(true);
+    }
     public static void setNodos(String x[]){
         nodos=x;
     }
     public static String[] getNodos(){
         return nodos;
+    }
+    public static void setMatriz(int x[][]){
+        matriz=x;
+    }
+    public static int[][] getMatriz(){
+        return matriz;
     }
     
     
