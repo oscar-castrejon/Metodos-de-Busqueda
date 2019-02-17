@@ -13,10 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class Crear extends javax.swing.JFrame {
 
-    public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
-    public static LlenarCampos campos=new LlenarCampos();
-    
-    public static String nodos[];
+    public static Metodos_de_Busqueda metodos =new Metodos_de_Busqueda();
+    public static LlenarCampos campos =new LlenarCampos();
+    public static String nodos [];
     public static int total_nodos=0;
     public static int cant_nodos=0;
     /**
@@ -160,7 +159,6 @@ public class Crear extends javax.swing.JFrame {
                 ok2.setEnabled(false);
                 Aceptar.setEnabled(true);
                 metodos.setNodos(nodos);
-                
             }
             else nombres.setText("Nombre de Nodo n° "+(cant_nodos+1)+":");
         }
@@ -176,7 +174,7 @@ public class Crear extends javax.swing.JFrame {
         
         try{
             total_nodos=Integer.parseInt(num.getText());
-            nodos=new String[total_nodos];
+            metodos.nodos=new String[total_nodos];
             ok1.setEnabled(false);
             num.setEditable(false);
             nombres.setEnabled(true);

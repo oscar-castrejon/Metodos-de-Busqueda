@@ -15,8 +15,7 @@ public class Mostrar extends JFrame {
     
     public static int matriz[][];
     
-    
-    public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
+    //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
     
       public static LlenarCampos frame;
@@ -31,18 +30,17 @@ public class Mostrar extends JFrame {
     
     public void addComponentsToPane(final Container pane) {
         initGaps();
+        //metodos=LlenarCampos.metodos;
         final JPanel compsToExperiment = new JPanel();
         new GridLayout(0,2);
-        nodos=metodos.getNodos();
+        nodos=Crear.metodos.getNodos();
         int cantidad=nodos.length;
         grid= new GridLayout(cantidad+2,cantidad+1);
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
         int p=0;
         TextField tf[][]=new TextField[cantidad][cantidad];
-        int matriz[][]=metodos.getMatriz();
-        
-        
+        Crear.metodos.matriz = new int [cantidad][cantidad];
         
             compsToExperiment.add(new JLabel(""));
         
@@ -55,7 +53,7 @@ public class Mostrar extends JFrame {
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
-                tf[x][y]=new TextField(""+matriz[x][y]);
+                tf[x][y]=new TextField(""+Crear.metodos.matriz[x][y]);
                 tf[x][y].setEnabled(false);
                 compsToExperiment.add(tf[x][y]);
             }
@@ -70,7 +68,7 @@ public class Mostrar extends JFrame {
                 //Set up the layout of the buttons
                 grid.layoutContainer(compsToExperiment);
                 
-                    metodos.abrir();
+                    Crear.metodos.abrir();
                     frame.dispose();
                 }
         });

@@ -33,14 +33,20 @@ public class Metodos_de_Busqueda {
     public static void abrir(){
         principal.setVisible(true);
     }
-    public static void setNodos(String x[]){
-        nodos=x;
+    public static void setNodos(String z[]){
+        for(int y=0;y<z.length;y++){
+                nodos[y]=z[y];
+            }
     }
     public static String[] getNodos(){
         return nodos;
     }
-    public static void setMatriz(int x[][]){
-        matriz=x;
+    public static void setMatriz(int z[][]){
+        for(int x=0;x<z.length;x++){
+            for(int y=0;y<z.length;y++){
+                matriz[x][y]=z[x][y];
+            }
+        }
     }
     public static int[][] getMatriz(){
         return matriz;

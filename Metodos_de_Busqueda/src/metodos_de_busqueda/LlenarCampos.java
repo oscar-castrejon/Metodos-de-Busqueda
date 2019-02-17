@@ -14,10 +14,7 @@ public class LlenarCampos extends JFrame {
     JButton Aceptar = new JButton("Aceptar");
     GridLayout grid;
     
-    public static int matriz[][];
-    
-    
-    public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
+    //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
     
       public static LlenarCampos frame;
@@ -32,9 +29,10 @@ public class LlenarCampos extends JFrame {
     
     public void addComponentsToPane(final Container pane) {
         initGaps();
+        //metodos=Crear.metodos;
         final JPanel compsToExperiment = new JPanel();
         new GridLayout(0,2);
-        nodos=metodos.getNodos();
+        nodos=Crear.metodos.getNodos();
         int cantidad=nodos.length;
         grid= new GridLayout(cantidad+2,cantidad+1);
         compsToExperiment.setLayout(grid);
@@ -56,7 +54,7 @@ public class LlenarCampos extends JFrame {
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
-                compsToExperiment.add(tf[x][y]=new TextField("0"));
+                compsToExperiment.add(tf[x][y]=new TextField(""));
             }
         }
         
@@ -74,9 +72,8 @@ public class LlenarCampos extends JFrame {
                             matriz[x][y]=Integer.parseInt(tf[x][y].getText());
                         }
                     }
-                    metodos.setMatriz(matriz);
-                    
-                    metodos.creado();
+                    Crear.metodos.setMatriz(matriz);          
+                    Crear.metodos.creado();
                     frame.dispose();
                 }
                 catch (NumberFormatException nfe){
