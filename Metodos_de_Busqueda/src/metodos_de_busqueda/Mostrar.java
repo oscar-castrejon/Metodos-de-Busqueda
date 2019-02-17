@@ -18,7 +18,7 @@ public class Mostrar extends JFrame {
     //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
     
-      public static LlenarCampos frame;
+      public static Mostrar frame;
     
     public Mostrar() {
         
@@ -40,9 +40,13 @@ public class Mostrar extends JFrame {
         int total=cantidad*cantidad;
         int p=0;
         TextField tf[][]=new TextField[cantidad][cantidad];
-        Crear.metodos.matriz = new int [cantidad][cantidad];
+        //Crear.metodos.matriz = new int [cantidad][cantidad];
         
             compsToExperiment.add(new JLabel(""));
+        matriz=Crear.metodos.getMatriz();
+        
+  
+                
         
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+nodos[x]));
@@ -53,11 +57,12 @@ public class Mostrar extends JFrame {
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
-                tf[x][y]=new TextField(""+Crear.metodos.matriz[x][y]);
+                tf[x][y]=new TextField(""+matriz[x][y]);                
                 tf[x][y].setEnabled(false);
                 compsToExperiment.add(tf[x][y]);
             }
         }
+        
         
         compsToExperiment.add(salir);
         
@@ -81,7 +86,7 @@ public class Mostrar extends JFrame {
      * event dispatch thread.
      */
      static void abrir() {
-         frame = new LlenarCampos();
+         frame = new Mostrar();
         //Create and set up the window.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Set up the content pane.

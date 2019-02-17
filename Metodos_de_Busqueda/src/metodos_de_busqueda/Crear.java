@@ -151,14 +151,14 @@ public class Crear extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre del nodo");
         }
         else{
-            nodos[cant_nodos]=nombre.getText();
+            metodos.nodos[cant_nodos]=nombre.getText();
             cant_nodos++;
             if(cant_nodos==total_nodos){
                 nombres.setEnabled(false);
                 nombre.setEditable(false);
                 ok2.setEnabled(false);
                 Aceptar.setEnabled(true);
-                metodos.setNodos(nodos);
+                metodos.setNodos(metodos.nodos);
             }
             else nombres.setText("Nombre de Nodo n° "+(cant_nodos+1)+":");
         }

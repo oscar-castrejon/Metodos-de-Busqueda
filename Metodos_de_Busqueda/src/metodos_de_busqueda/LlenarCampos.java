@@ -54,7 +54,7 @@ public class LlenarCampos extends JFrame {
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
-                compsToExperiment.add(tf[x][y]=new TextField(""));
+                compsToExperiment.add(tf[x][y]=new TextField("0"));
             }
         }
         
@@ -72,7 +72,7 @@ public class LlenarCampos extends JFrame {
                             matriz[x][y]=Integer.parseInt(tf[x][y].getText());
                         }
                     }
-                    Crear.metodos.setMatriz(matriz);          
+                    Crear.metodos.setMatriz(matriz,cantidad);          
                     Crear.metodos.creado();
                     frame.dispose();
                 }

@@ -41,12 +41,9 @@ public class Metodos_de_Busqueda {
     public static String[] getNodos(){
         return nodos;
     }
-    public static void setMatriz(int z[][]){
-        for(int x=0;x<z.length;x++){
-            for(int y=0;y<z.length;y++){
-                matriz[x][y]=z[x][y];
-            }
-        }
+    public static void setMatriz(int z[][],int c){
+        matriz=z;
+        
     }
     public static int[][] getMatriz(){
         return matriz;
