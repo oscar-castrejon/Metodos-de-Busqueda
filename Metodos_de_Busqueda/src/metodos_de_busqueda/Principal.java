@@ -15,7 +15,11 @@ public class Principal extends javax.swing.JFrame {
 
     
     public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
-    public static Mostrar mostrar=new Mostrar();
+    public static Mostrar mostrar = new Mostrar();
+    public static ModificarNombres modificarInformacion = new ModificarNombres();
+    public static ModificarPesos modificarPesos = new ModificarPesos();
+    
+    
     /**
      * Creates new form Principal
      */
@@ -56,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Modificar información");
+        jButton3.setText("Modificar Nombres");
         jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton4.setText("Modificar estructura ");
         jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Borrar");
         jButton5.setEnabled(false);
@@ -97,7 +106,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
@@ -124,7 +133,8 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        modificarInformacion.abrir();
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -163,6 +173,12 @@ public class Principal extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        modificarPesos.abrir();
+        
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
