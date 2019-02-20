@@ -73,7 +73,7 @@ public class LlenarCampos extends JFrame {
                         }
                     }
                     Crear.metodos.setMatriz(matriz,cantidad);          
-                    Crear.metodos.creado();
+                    Crear.metodos.principal.setVisible(true);
                     frame.dispose();
                 }
                 catch (NumberFormatException nfe){

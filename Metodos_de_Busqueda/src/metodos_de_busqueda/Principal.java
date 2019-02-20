@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Modificar Nombres");
+        jButton3.setText("Modificar Informacion");
         jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
@@ -162,8 +162,6 @@ public class Principal extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         jButton5.setEnabled(false);
         jButton1.setEnabled(true);
-        new Crear().setVisible(true);
-        this.setVisible(false);
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
