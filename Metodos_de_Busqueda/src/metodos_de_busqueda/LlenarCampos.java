@@ -41,8 +41,8 @@ public class LlenarCampos extends JFrame {
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
         int p=0;
-        TextField tf[][]=new TextField[cantidad][cantidad];
-        int matriz[][]=new int[cantidad][cantidad];
+        TextField tf[][]=new TextField[cantidad][cantidad+1];
+        int matriz[][]=new int[cantidad][cantidad+1];
         
         
         
@@ -51,6 +51,8 @@ public class LlenarCampos extends JFrame {
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+ndos.get(x)));
         }
+        
+            compsToExperiment.add(new JLabel("Val. Heur."));
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+ndos.get(x)));
             for(int y=0;y<cantidad;y++){
@@ -59,6 +61,8 @@ public class LlenarCampos extends JFrame {
                 //p++;
                 compsToExperiment.add(tf[x][y]=new TextField("0"));
             }
+                compsToExperiment.add(tf[x][cantidad]=new TextField("0"));
+            
         }
         
         compsToExperiment.add(Aceptar);
@@ -74,7 +78,7 @@ public class LlenarCampos extends JFrame {
                 
                 try{
                     for(int x=0;x<cantidad;x++){
-                        for(int y=0;y<cantidad;y++){
+                        for(int y=0;y<=cantidad;y++){
                             matriz[x][y]=Integer.parseInt(tf[x][y].getText());
                             if(matriz[x][y]<0)positivos=false;
                             if(matriz[x][y]>1||matriz[x][y]<0)peso=true;

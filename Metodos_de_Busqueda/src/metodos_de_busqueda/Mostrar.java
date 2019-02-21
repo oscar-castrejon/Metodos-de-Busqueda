@@ -40,7 +40,7 @@ public class Mostrar extends JFrame {
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
         int p=0;
-        TextField tf[][]=new TextField[cantidad][cantidad];
+        TextField tf[][]=new TextField[cantidad][cantidad+1];
         //Crear.metodos.matriz = new int [cantidad][cantidad];
         
             compsToExperiment.add(new JLabel(""));
@@ -52,6 +52,8 @@ public class Mostrar extends JFrame {
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+ndos.get(x)));
         }
+        
+            compsToExperiment.add(new JLabel("Val. Heur."));
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+ndos.get(x)));
             for(int y=0;y<cantidad;y++){
@@ -62,6 +64,10 @@ public class Mostrar extends JFrame {
                 tf[x][y].setEnabled(false);
                 compsToExperiment.add(tf[x][y]);
             }
+            
+                compsToExperiment.add(tf[x][cantidad]=new TextField(""+matriz[x][cantidad]));
+                         
+                tf[x][cantidad].setEnabled(false);
         }
         
         

@@ -42,20 +42,24 @@ public class ModificarPesos extends JFrame {
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
         int p=0;
-        TextField tf[][]=new TextField[cantidad][cantidad];
+        TextField tf[][]=new TextField[cantidad][cantidad+1];
         //Crear.metodos.matriz = new int [cantidad][cantidad];
         compsToExperiment.add(new JLabel(""));
         matriz=Crear.metodos.getMatriz();
         
   
                 
+        TextField tf_nodos[]=new TextField[cantidad];
         
         for(int x=0;x<cantidad;x++){
-            compsToExperiment.add(new JLabel(""+ndos.get(x)));
+            tf_nodos[x] = new TextField(""+ndos.get(x));
+            compsToExperiment.add(tf_nodos[x]);
         }
+        
+            compsToExperiment.add(new JLabel("Val. Heur."));
         for(int x=0;x<cantidad;x++){
             compsToExperiment.add(new JLabel(""+ndos.get(x)));
-            for(int y=0;y<cantidad;y++){
+            for(int y=0;y<=cantidad;y++){
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
                 //p++;
@@ -74,10 +78,15 @@ public class ModificarPesos extends JFrame {
                 //Set up the layout of the buttons
                 try{
                     for(int x=0;x<cantidad;x++){
-                        for(int y=0;y<cantidad;y++){
+                        for(int y=0;y<=cantidad;y++){
                             matriz[x][y]=Integer.parseInt(tf[x][y].getText());
                         }
                     }
+                    
+                    for(int y=0;y<cantidad;y++){
+                            ndos.set(y,tf_nodos[y].getText());
+                        }
+                    
                     Crear.metodos.setMatriz(matriz,cantidad);          
                     Crear.metodos.creado();
                     frame.dispose();
