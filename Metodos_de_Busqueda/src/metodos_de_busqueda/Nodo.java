@@ -11,8 +11,22 @@ package metodos_de_busqueda;
  */
 public class Nodo {
     
-    public Nodo nuevo=null;
-    public Nodo inicio=
+    public String informacion;
+    public int peso;
+    public int val_heur;
+    public Nodo siguiente;
+    public Nodo adyacente;
+    
+    public Nodo(String info,int peso,int val_heur,Nodo sig,Nodo ady){
+        this.informacion=info;
+        this.peso=peso;
+        this.val_heur=val_heur;
+        this.siguiente=sig;
+        this.adyacente=ady;
+    }
+    
+    
+    //public Nodo inicio=
     
     
     

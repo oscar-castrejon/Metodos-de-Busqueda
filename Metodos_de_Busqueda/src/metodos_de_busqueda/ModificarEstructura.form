@@ -27,15 +27,20 @@
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="eliminar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="nombre_nuevo" max="32767" attributes="0"/>
-                          <Component id="lista_nodos" pref="89" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="eliminar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="nombre_nuevo" max="32767" attributes="0"/>
+                                  <Component id="lista_nodos" pref="89" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="nm" min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -63,7 +68,9 @@
                   <Component id="ok2" min="-2" max="-2" attributes="0"/>
                   <Component id="eliminar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="nm" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="67" max="32767" attributes="0"/>
           </Group>
@@ -88,14 +95,14 @@
     </Component>
     <Component class="java.awt.Choice" name="lista_nodos">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="enabled" type="boolean" value="false" postCode="lista_nodos = new Choice();"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lista_nodosMouseClicked"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="lista_nodosItemStateChanged"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for (int i=0; i &lt; Crear.metodos.ndos.size(); i++) {&#xa;lista_nodos.add(Crear.metodos.ndos.get(i));&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="lista_nodos = new Choice();"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
@@ -123,6 +130,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nm">
     </Component>
   </SubComponents>
 </Form>

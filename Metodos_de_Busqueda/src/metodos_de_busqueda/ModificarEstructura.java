@@ -41,6 +41,7 @@ public class ModificarEstructura extends javax.swing.JFrame {
         ok2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         eliminar = new javax.swing.JCheckBox();
+        nm = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +59,11 @@ public class ModificarEstructura extends javax.swing.JFrame {
         lista_nodos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lista_nodosMouseClicked(evt);
+            }
+        });
+        lista_nodos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lista_nodosItemStateChanged(evt);
             }
         });
 
@@ -96,13 +102,16 @@ public class ModificarEstructura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(eliminar))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombre_nuevo)
-                            .addComponent(lista_nodos, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(eliminar))
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nombre_nuevo)
+                                    .addComponent(lista_nodos, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
+                            .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
@@ -122,7 +131,9 @@ public class ModificarEstructura extends javax.swing.JFrame {
                     .addComponent(lista_nodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ok2)
                     .addComponent(eliminar))
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jButton3)
                 .addContainerGap(67, Short.MAX_VALUE))
         );
@@ -158,9 +169,12 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
         // TODO add your handling code here:
         int borrar=-1;
         boolean brr=false;
+        //String j=lista_nodos.getSelectedItem();
         String nombre=lista_nodos.getSelectedItem();
-        
+        //System.out.println(j+"............");
         for(int x=0;x<Crear.metodos.ndos.size();x++){
+            
+                System.out.println(nombre+"............");
             if(nombre==Crear.metodos.ndos.get(x)){
                 borrar=x;
                 System.out.println(nombre);
@@ -178,8 +192,13 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
 
     private void lista_nodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_nodosMouseClicked
         // TODO add your handling code here:
-        System.out.println(lista_nodos.getSelectedItem());
+        //nm.setText(lista_nodos.getSelectedItem());
     }//GEN-LAST:event_lista_nodosMouseClicked
+
+    private void lista_nodosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lista_nodosItemStateChanged
+        // TODO add your handling code here:
+        nm.setText(lista_nodos.getSelectedItem());
+    }//GEN-LAST:event_lista_nodosItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -232,6 +251,7 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     public static java.awt.Choice lista_nodos;
+    private javax.swing.JTextField nm;
     private javax.swing.JTextField nombre_nuevo;
     private javax.swing.JButton ok2;
     // End of variables declaration//GEN-END:variables
