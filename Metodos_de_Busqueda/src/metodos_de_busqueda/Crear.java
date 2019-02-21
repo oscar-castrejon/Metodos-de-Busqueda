@@ -5,6 +5,7 @@
  */
 package metodos_de_busqueda;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class Crear extends javax.swing.JFrame {
     public static String nodos [];
     public static int total_nodos=0;
     public static int cant_nodos=0;
+    public static ArrayList<String> ndos ;
     /**
      * Creates new form Crear
      */
@@ -41,7 +43,7 @@ public class Crear extends javax.swing.JFrame {
         nombres = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         ok2 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        peso = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,8 +83,8 @@ public class Crear extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Considerar peso");
-        jCheckBox1.setEnabled(false);
+        peso.setText("Considerar peso");
+        peso.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +93,7 @@ public class Crear extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(peso)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(nombres)
@@ -121,7 +123,7 @@ public class Crear extends javax.swing.JFrame {
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ok2))
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
+                .addComponent(peso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(Aceptar)
                 .addGap(41, 41, 41))
@@ -139,7 +141,8 @@ public class Crear extends javax.swing.JFrame {
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
-        
+        if(peso.isSelected())metodos.peso=true;
+        else metodos.peso=false;
         campos.abrir();
         
         this.dispose();
@@ -151,14 +154,14 @@ public class Crear extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre del nodo");
         }
         else{
-            metodos.nodos[cant_nodos]=nombre.getText();
+            metodos.ndos.add(nombre.getText());
             cant_nodos++;
             if(cant_nodos==total_nodos){
                 nombres.setEnabled(false);
                 nombre.setEditable(false);
                 ok2.setEnabled(false);
+                peso.setEnabled(true);
                 Aceptar.setEnabled(true);
-                metodos.setNodos(metodos.nodos);
             }
             else nombres.setText("Nombre de Nodo n° "+(cant_nodos+1)+":");
         }
@@ -174,7 +177,7 @@ public class Crear extends javax.swing.JFrame {
         
         try{
             total_nodos=Integer.parseInt(num.getText());
-            metodos.nodos=new String[total_nodos];
+            metodos.ndos=new ArrayList<String>();
             ok1.setEnabled(false);
             num.setEditable(false);
             nombres.setEnabled(true);
@@ -225,12 +228,12 @@ public class Crear extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nombre;
     private javax.swing.JLabel nombres;
     private javax.swing.JTextField num;
     private javax.swing.JButton ok1;
     private javax.swing.JButton ok2;
+    private javax.swing.JCheckBox peso;
     // End of variables declaration//GEN-END:variables
 }

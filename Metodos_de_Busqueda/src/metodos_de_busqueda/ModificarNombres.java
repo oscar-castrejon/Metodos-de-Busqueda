@@ -2,6 +2,7 @@ package metodos_de_busqueda;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class ModificarNombres extends JFrame {
@@ -14,6 +15,7 @@ public class ModificarNombres extends JFrame {
     //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
     
+    public static ArrayList<String> ndos ;
     public static ModificarNombres frame;
     
     public ModificarNombres() {
@@ -28,8 +30,9 @@ public class ModificarNombres extends JFrame {
         initGaps();
         final JPanel compsToExperiment = new JPanel();
         new GridLayout(0,2);
-        nodos=Crear.metodos.getNodos();
-        int cantidad=nodos.length;
+        ndos=Crear.metodos.getNdos();
+        
+        int cantidad=ndos.size();
         grid= new GridLayout(cantidad+2,cantidad+1);
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
@@ -42,7 +45,7 @@ public class ModificarNombres extends JFrame {
         TextField tf_nodos[]=new TextField[cantidad];
         
         for(int x=0;x<cantidad;x++){
-            tf_nodos[x] = new TextField(""+nodos[x]);
+            tf_nodos[x] = new TextField(""+ndos.get(x));
             compsToExperiment.add(tf_nodos[x]);
         }
         for(int x=0;x<cantidad;x++){
@@ -77,7 +80,7 @@ public class ModificarNombres extends JFrame {
                 //Get the horizontal gap value
                 //Set up the layout of the buttons
                         for(int y=0;y<cantidad;y++){
-                            nodos[y]=tf_nodos[y].getText();
+                            ndos.set(y,tf_nodos[y].getText());
                         }
                     grid.layoutContainer(compsToExperiment);
                     Crear.metodos.abrir();

@@ -8,6 +8,7 @@ package metodos_de_busqueda;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class LlenarCampos extends JFrame {
@@ -17,6 +18,7 @@ public class LlenarCampos extends JFrame {
     //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
     
+    public static ArrayList<String> ndos ;
       public static LlenarCampos frame;
     
     public LlenarCampos() {
@@ -32,8 +34,9 @@ public class LlenarCampos extends JFrame {
         //metodos=Crear.metodos;
         final JPanel compsToExperiment = new JPanel();
         new GridLayout(0,2);
-        nodos=Crear.metodos.getNodos();
-        int cantidad=nodos.length;
+        ndos=Crear.metodos.getNdos();
+        
+        int cantidad=ndos.size();
         grid= new GridLayout(cantidad+2,cantidad+1);
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
@@ -46,10 +49,10 @@ public class LlenarCampos extends JFrame {
             compsToExperiment.add(new JLabel(""));
         
         for(int x=0;x<cantidad;x++){
-            compsToExperiment.add(new JLabel(""+nodos[x]));
+            compsToExperiment.add(new JLabel(""+ndos.get(x)));
         }
         for(int x=0;x<cantidad;x++){
-            compsToExperiment.add(new JLabel(""+nodos[x]));
+            compsToExperiment.add(new JLabel(""+ndos.get(x)));
             for(int y=0;y<cantidad;y++){
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
@@ -59,22 +62,33 @@ public class LlenarCampos extends JFrame {
         }
         
         compsToExperiment.add(Aceptar);
-        
         //Process the Apply gaps button press
         Aceptar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 //Get the horizontal gap value
                 //Set up the layout of the buttons
                 grid.layoutContainer(compsToExperiment);
+                
+                boolean positivos=true;
+                boolean peso=false;
+                
                 try{
                     for(int x=0;x<cantidad;x++){
                         for(int y=0;y<cantidad;y++){
                             matriz[x][y]=Integer.parseInt(tf[x][y].getText());
+                            if(matriz[x][y]<0)positivos=false;
+                            if(matriz[x][y]>1||matriz[x][y]<0)peso=true;
+                            
                         }
                     }
+                    
+                    if(positivos==false)JOptionPane.showMessageDialog(null, "Rango incorrecto, solo numeros positivos");
+                    else if(Crear.metodos.peso==false&&peso==true)JOptionPane.showMessageDialog(null, "No se va a considerar el peso, solo puede indicar 0 o 1");
+                    else{
                     Crear.metodos.setMatriz(matriz,cantidad);          
                     Crear.metodos.principal.setVisible(true);
                     frame.dispose();
+                    }
                 }
                 catch (NumberFormatException nfe){
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros en los campos");

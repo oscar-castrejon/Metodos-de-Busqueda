@@ -5,6 +5,7 @@
  */
 package metodos_de_busqueda;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -16,8 +17,12 @@ public class Metodos_de_Busqueda {
     
     public static JFrame principal=new Principal();
     public static String nodos[];
+    
+    public static ArrayList<String> ndos ;
     public static boolean creado=false;
     public static int matriz[][];
+    public static boolean peso=false;
+    
     
     /**
      * @param args the command line arguments
@@ -40,6 +45,13 @@ public class Metodos_de_Busqueda {
     }
     public static String[] getNodos(){
         return nodos;
+    }
+    
+    public static void setNdos(ArrayList<String> z){
+        ndos=z;
+    }
+    public static ArrayList<String> getNdos(){
+        return ndos;
     }
     public static void setMatriz(int z[][],int c){
         matriz=z;

@@ -7,6 +7,7 @@ package metodos_de_busqueda;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Mostrar extends JFrame {
@@ -15,9 +16,9 @@ public class Mostrar extends JFrame {
     
     public static int matriz[][];
     
+    public static ArrayList<String> ndos ;
     //public static Metodos_de_Busqueda metodos=new Metodos_de_Busqueda();
     public static String nodos[];
-    
       public static Mostrar frame;
     
     public Mostrar() {
@@ -33,8 +34,8 @@ public class Mostrar extends JFrame {
         //metodos=LlenarCampos.metodos;
         final JPanel compsToExperiment = new JPanel();
         new GridLayout(0,2);
-        nodos=Crear.metodos.getNodos();
-        int cantidad=nodos.length;
+        ndos=Crear.metodos.getNdos();
+        int cantidad=ndos.size();
         grid= new GridLayout(cantidad+2,cantidad+1);
         compsToExperiment.setLayout(grid);
         int total=cantidad*cantidad;
@@ -49,10 +50,10 @@ public class Mostrar extends JFrame {
                 
         
         for(int x=0;x<cantidad;x++){
-            compsToExperiment.add(new JLabel(""+nodos[x]));
+            compsToExperiment.add(new JLabel(""+ndos.get(x)));
         }
         for(int x=0;x<cantidad;x++){
-            compsToExperiment.add(new JLabel(""+nodos[x]));
+            compsToExperiment.add(new JLabel(""+ndos.get(x)));
             for(int y=0;y<cantidad;y++){
                 //compsToExperiment.add(tf[p]);
                 //tf[p].setText(x+","+y);
