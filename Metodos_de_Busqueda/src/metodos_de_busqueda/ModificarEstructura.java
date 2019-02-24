@@ -37,11 +37,10 @@ public class ModificarEstructura extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nombre_nuevo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        lista_nodos = new java.awt.Choice();
         ok2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         eliminar = new javax.swing.JCheckBox();
-        nm = new javax.swing.JTextField();
+        lista_nodos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,19 +50,6 @@ public class ModificarEstructura extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        lista_nodos.setEnabled(false);
-        lista_nodos = new Choice();
-        lista_nodos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lista_nodosMouseClicked(evt);
-            }
-        });
-        lista_nodos.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                lista_nodosItemStateChanged(evt);
             }
         });
 
@@ -89,9 +75,12 @@ public class ModificarEstructura extends javax.swing.JFrame {
             }
         });
 
-        for (int i=0; i < Crear.metodos.ndos.size(); i++) {
-            lista_nodos.add(Crear.metodos.ndos.get(i));
-        }
+        lista_nodos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+        lista_nodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lista_nodosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,16 +91,13 @@ public class ModificarEstructura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(eliminar))
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nombre_nuevo)
-                                    .addComponent(lista_nodos, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
-                            .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(eliminar))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombre_nuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                            .addComponent(lista_nodos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
@@ -128,14 +114,13 @@ public class ModificarEstructura extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lista_nodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ok2)
-                    .addComponent(eliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(eliminar)
+                        .addComponent(lista_nodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54)
                 .addComponent(jButton3)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,17 +131,19 @@ public class ModificarEstructura extends javax.swing.JFrame {
         if(eliminar.isSelected()){
             lista_nodos.setEnabled(true);
             
-            lista_nodos = new Choice();
-for (int i=0; i < Crear.metodos.ndos.size(); i++) {
-lista_nodos.add(Crear.metodos.ndos.get(i));
-}
+            String[] nombres=new String[Crear.metodos.ndos.size()];
+            for(int x=0; x<Crear.metodos.ndos.size();x++){
+                nombres[x]=Crear.metodos.ndos.get(x);
+            }
+            lista_nodos.setModel(new javax.swing.DefaultComboBoxModel<>(nombres));
             ok2.setEnabled(true);
         }
         else{
-            
+                
             lista_nodos.setEnabled(false);
             ok2.setEnabled(false);
-        }
+            }
+        
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -165,19 +152,22 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    /*
+    for (int i=0; i < Crear.metodos.ndos.size(); i++) {
+lista_nodos.add(Crear.metodos.ndos.get(i));
+}
+    
+    
+    */
     private void ok2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok2ActionPerformed
         // TODO add your handling code here:
         int borrar=-1;
         boolean brr=false;
-        //String j=lista_nodos.getSelectedItem();
-        String nombre=lista_nodos.getSelectedItem();
-        //System.out.println(j+"............");
+        String nombre=(String)lista_nodos.getSelectedItem();
         for(int x=0;x<Crear.metodos.ndos.size();x++){
-            
-                System.out.println(nombre+"............");
             if(nombre==Crear.metodos.ndos.get(x)){
                 borrar=x;
-                System.out.println(nombre);
                 brr=true;
             }
         }
@@ -190,15 +180,9 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
                     this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void lista_nodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_nodosMouseClicked
+    private void lista_nodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_nodosActionPerformed
         // TODO add your handling code here:
-        //nm.setText(lista_nodos.getSelectedItem());
-    }//GEN-LAST:event_lista_nodosMouseClicked
-
-    private void lista_nodosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lista_nodosItemStateChanged
-        // TODO add your handling code here:
-        nm.setText(lista_nodos.getSelectedItem());
-    }//GEN-LAST:event_lista_nodosItemStateChanged
+    }//GEN-LAST:event_lista_nodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,10 +222,7 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
     static void abrir() {
          frame = new ModificarEstructura();
          
-                    lista_nodos = new Choice();
-for (int i=0; i < Crear.metodos.ndos.size(); i++) {
-lista_nodos.add(Crear.metodos.ndos.get(i));
-}
+              
         frame.pack();
         frame.setVisible(true);
     }
@@ -250,8 +231,7 @@ lista_nodos.add(Crear.metodos.ndos.get(i));
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    public static java.awt.Choice lista_nodos;
-    private javax.swing.JTextField nm;
+    private javax.swing.JComboBox<String> lista_nodos;
     private javax.swing.JTextField nombre_nuevo;
     private javax.swing.JButton ok2;
     // End of variables declaration//GEN-END:variables
