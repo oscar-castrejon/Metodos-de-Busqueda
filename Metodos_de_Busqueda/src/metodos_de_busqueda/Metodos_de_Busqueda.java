@@ -22,6 +22,7 @@ public class Metodos_de_Busqueda {
     public static boolean creado=false;
     public static int matriz[][];
     public static boolean peso=false;
+    public static Lista_Info L_Info=new Lista_Info();
     
     
     /**
@@ -59,6 +60,16 @@ public class Metodos_de_Busqueda {
     }
     public static int[][] getMatriz(){
         return matriz;
+    }
+    
+    public static void Crear_Lista_Info(){
+        for(int x=0;x<ndos.size();x++){
+            L_Info.agregar_nodo(ndos.get(x));
+        }
+    }
+    
+    public static void Imprimir_Lista_Info(){
+        L_Info.imprimir();
     }
     
     

@@ -89,7 +89,7 @@ public class LlenarCampos extends JFrame {
                     if(positivos==false)JOptionPane.showMessageDialog(null, "Rango incorrecto, solo numeros positivos");
                     else if(Crear.metodos.peso==false&&peso==true)JOptionPane.showMessageDialog(null, "No se va a considerar el peso, solo puede indicar 0 o 1");
                     else{
-                    Crear.metodos.setMatriz(matriz,cantidad);          
+                    Crear.metodos.setMatriz(matriz,cantidad);   
                     Crear.metodos.principal.setVisible(true);
                     frame.dispose();
                     }

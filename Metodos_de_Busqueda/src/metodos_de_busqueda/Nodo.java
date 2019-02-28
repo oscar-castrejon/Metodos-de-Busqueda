@@ -25,7 +25,9 @@ public class Nodo {
         this.adyacente=ady;
     }
     
-    
+    public String getInfo(){
+        return informacion;
+    }
     //public Nodo inicio=
     
     

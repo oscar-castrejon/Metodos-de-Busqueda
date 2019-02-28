@@ -143,6 +143,7 @@ public class Crear extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(peso.isSelected())metodos.peso=true;
         else metodos.peso=false;
+        Crear.metodos.Crear_Lista_Info();      
         campos.abrir();
         
         this.dispose();
