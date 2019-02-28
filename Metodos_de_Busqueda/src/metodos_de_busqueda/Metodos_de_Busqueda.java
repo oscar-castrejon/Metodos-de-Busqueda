@@ -22,8 +22,8 @@ public class Metodos_de_Busqueda {
     public static boolean creado=false;
     public static int matriz[][];
     public static boolean peso=false;
-    public static Lista_Info L_Info=new Lista_Info();
-    
+    public static Lista_Info L_Info=new Lista_Info();    
+    public static Lista_Adya L_Adya=new Lista_Adya();
     
     /**
      * @param args the command line arguments

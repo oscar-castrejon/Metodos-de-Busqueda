@@ -90,6 +90,22 @@ public class LlenarCampos extends JFrame {
                     else if(Crear.metodos.peso==false&&peso==true)JOptionPane.showMessageDialog(null, "No se va a considerar el peso, solo puede indicar 0 o 1");
                     else{
                     Crear.metodos.setMatriz(matriz,cantidad);   
+                    Crear.metodos.L_Adya.linea=new Nodo[cantidad];
+                    for(int k=0;k<cantidad;k++){
+                        Crear.metodos.L_Adya.linea[k]=Crear.metodos.L_Adya.inicio;
+                        Crear.metodos.L_Adya.reset();
+                        Nodo ini=Crear.metodos.L_Info.buscar(ndos.get(k));
+                        for(int j=0;j<cantidad;j++){
+                            if(matriz[k][j]!=0){
+                                Crear.metodos.L_Adya.agregar_nodo_i(matriz[k][j],0,ini);
+                                ini=Crear.metodos.L_Adya.ultimo;
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
                     Crear.metodos.principal.setVisible(true);
                     frame.dispose();
                     }
