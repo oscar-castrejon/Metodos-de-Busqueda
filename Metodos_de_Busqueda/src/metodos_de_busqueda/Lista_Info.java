@@ -10,9 +10,9 @@ package metodos_de_busqueda;
  * @author Oscar
  */
 public class Lista_Info {
-private Nodo inicio;
-   private Nodo ultimo;   
-   private int tam;
+public Nodo inicio;
+   public Nodo ultimo;   
+   public int tam;
    public Lista_Info(){
       
       inicio=null;

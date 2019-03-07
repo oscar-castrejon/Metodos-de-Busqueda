@@ -44,6 +44,7 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +95,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton7.setText("Ver Lista Informacion");
+        jButton7.setEnabled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -101,9 +103,19 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton8.setText("Imprimir Lista Adyacencia");
+        jButton8.setEnabled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jButton9.setText("FASE II");
+        jButton9.setEnabled(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
             }
         });
 
@@ -111,10 +123,6 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
-                .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,11 +135,18 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton6)
+                                .addGap(15, 15, 15))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5)))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,9 +163,15 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton8))
-                .addGap(28, 28, 28)
-                .addComponent(jButton6)
-                .addGap(44, 44, 44))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton6)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton9)
+                        .addGap(30, 30, 30))))
         );
 
         jButton3.getAccessibleContext().setAccessibleName("Modificar \\ninformación");
@@ -169,6 +190,10 @@ public class Principal extends javax.swing.JFrame {
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
         jButton5.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        
         jButton1.setEnabled(false);
         
         new Crear().setVisible(true);
@@ -183,6 +208,10 @@ public class Principal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Se ha borrado el grafo existente");
+        Crear.metodos.L_Info.inicio=null;
+        Crear.metodos.L_Info.ultimo=null;
+        Crear.metodos.L_Info.tam=0;
+        
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
         jButton4.setEnabled(false);
@@ -208,13 +237,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        System.out.println("\t\t\t\t\t\t\t\tLista de Informacion");        
+        System.out.println("Direccion:\t\t\t\tInformacion\t\tPeso\t\tValor H.\tDir al sig Nodo\t\t\t\t\tDir Nodo adya");
         Crear.metodos.Imprimir_Lista_Info();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        System.out.println("\t\t\t\t\t\t\t\tLista de Adyacencia");  
+        System.out.println("Direccion:\t\t\t\tInformacion\t\tPeso\t\tValor H.\tDir Nodo adya\t\t\t\t\tDir sig Nodo adya");
         Crear.metodos.L_Adya.imprimir(Crear.metodos.ndos.size());
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        new Fase2().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,5 +299,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     // End of variables declaration//GEN-END:variables
 }

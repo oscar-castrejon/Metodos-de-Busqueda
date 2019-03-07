@@ -92,15 +92,24 @@ public class LlenarCampos extends JFrame {
                     Crear.metodos.setMatriz(matriz,cantidad);   
                     Crear.metodos.L_Adya.linea=new Nodo[cantidad];
                     for(int k=0;k<cantidad;k++){
-                        Crear.metodos.L_Adya.linea[k]=Crear.metodos.L_Adya.inicio;
-                        Crear.metodos.L_Adya.reset();
+                        //Crear.metodos.L_Adya.linea[k]=null;
+                        
+                        //Crear.metodos.L_Adya.agregar_nodo_i(ndos.get(k),0,0,null);
+                        
                         Nodo ini=Crear.metodos.L_Info.buscar(ndos.get(k));
+                        //System.out.println(ini+"     "+ ndos.get(k));
                         for(int j=0;j<cantidad;j++){
                             if(matriz[k][j]!=0){
-                                Crear.metodos.L_Adya.agregar_nodo_i(matriz[k][j],0,ini);
+                                Crear.metodos.L_Adya.agregar_nodo_i(ndos.get(j),matriz[k][j],0,ini);
+                                ini.adyacente=Crear.metodos.L_Adya.ultimo;
+                                //System.out.println("                       "+ini+"     ");
                                 ini=Crear.metodos.L_Adya.ultimo;
+                                //System.out.println("                       "+ini+"     ");
+                        
                             }
                         }
+                        
+                        Crear.metodos.L_Adya.reset();
                     }
                     
                     
